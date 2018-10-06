@@ -21,7 +21,7 @@ directory.each { |e|
 	Mp3Info.open(e_filename) do |mp3|
 		episode["title"] = mp3.tag.title
 		episode["excerpt"] = mp3.tag2.COMM
-		episode["audio"]["url"] = e
+		episode["audio"]["mp3"] = e
 		episode["date"] = File.ctime e_filename
 	end
 	File.open(p_filename, 'w') do |file|
