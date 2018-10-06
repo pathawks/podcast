@@ -3,4 +3,29 @@
 
 STDOUT.sync = true
 
-puts "Hello World"
+require "jekyll"
+require "mp3info"
+require "yaml"
+
+config = Jekyll::configuration
+
+dirname = File.join(config['source'], (config['podcast_dir'] || "episodes"))
+directory = Dir.new(dirname)
+
+directory.each { |e|
+	next unless File.extname(e) == ".mp3"
+	e_filename = File.join(dirname, e)
+	p_filename = File.join(dirname, File.basename(e, File.extname(e))+".html")
+	episode = {"audio"=>{}}
+	puts "Found episode #{e_filename}"
+	Mp3Info.open(e_filename) do |mp3|
+		episode["title"] = mp3.tag.title
+		episode["excerpt"] = mp3.tag2.COMM
+		episode["audio"]["url"] = e
+		episode["date"] = File.ctime e_filename
+	end
+	File.open(p_filename, 'w') do |file|
+		file.write episode.to_yaml
+		file.write "---\n\n#{episode['excerpt']}\n"
+	end
+}
