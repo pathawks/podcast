@@ -29,3 +29,5 @@ directory.each { |e|
 		file.write "---\n\n#{episode['excerpt']}\n"
 	end
 }
+
+`jekyll build && gsutil -m cp -r _site/* gs://herkyhack.com`
