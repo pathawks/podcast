@@ -3,7 +3,8 @@
 
 STDOUT.sync = true
 
-require "jekyll-podcast"
+require "jekyll"
+require "podcast"
 
 config = Jekyll::configuration
 
@@ -15,7 +16,7 @@ directory.each { |e|
 	e_filename = File.join(dirname, e)
 	p_filename = File.join(dirname, File.basename(e, File.extname(e))+".html")
 	puts "Found episode: #{e_filename}"
-	episode = Jekyll::Podcast::Episode.new(e_filename)
+	episode = JekyllPodcast::Episode.new(e_filename)
 	File.open(p_filename, 'w') do |file|
 		file.write episode.to_yaml
 		file.write "---\n"
