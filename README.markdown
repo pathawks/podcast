@@ -10,6 +10,13 @@ podcast (title, date, etc.) and create a page for your site where users can
 listen to each episode. Additionally, this program will create an RSS feed so
 that users can be automatically notified when new episodes are published.
 
+### Demo Site
+
+We were able to record and publish each episode of our demo [Herky Hack
+podcast](http://herkyhack.com) in less than ten minutes. After each episode was
+encoded as an MP3, the `podcast` command would generate the HTML page for the
+episode, add the episode to our RSS feed, and publish the site.
+
 ### Tools Used
 
  * [Google Cloud](https://cloud.google.com)
