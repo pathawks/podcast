@@ -29,7 +29,7 @@
 				<link>{{ post.url | absolute_url }}</link>
 				<guid>{{ post.url | absolute_url }}</guid>
 				<pubDate>{{ post.date | date_to_rfc822 }}</pubDate>
-				<enclosure type="audio/mpeg" url="{{ post.audio.mp3 }}" />
+				<enclosure type="audio/mpeg" url="{{ post.audio.mp3 | prepend: '/' | prepend: page.collection | absolute_url }}" />
 			</item>
 		{% endfor %}
 	</channel>
