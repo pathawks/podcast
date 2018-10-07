@@ -11,7 +11,15 @@ module JekyllPodcast
         @episode["title"] = mp3.tag.title
         @episode["excerpt"] = mp3.tag2.COMM
         @episode["audio"]["mp3"] = File.basename(e_filename)
-        @episode["date"] = File.ctime(e_filename)
+        if (mp3.tag2.TYER && mp3.tag2.TDAT && mp3.tag2.TIME)
+          year  = mp3.tag2.TYER
+          month = mp3.tag2.TDAT[2..3]
+          date  = mp3.tag2.TDAT[0..1]
+          time  = mp3.tag2.TIME
+          @episode["date"] = "#{year}-#{month}-#{date} #{time}"
+        else
+          @episode["date"] = File.ctime(e_filename)
+        end
       end
     end
 
