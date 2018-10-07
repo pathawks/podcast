@@ -19,3 +19,5 @@ that users can be automatically notified when new episodes are published.
    - Used for registering the [HerkyHack.com](http://herkyhack.com/) domain
  * [Forecast](https://overcast.fm/forecast) for encoding episodes as MP3 files
  * [Jekyll](https://jekyllrb.com/) for generating HTML
+ * [Roboto](https://fonts.google.com/specimen/Roboto) font used on demo site
+ * [Twitter API](https://developer.twitter.com/en/docs.html) used for sharing new episodes
