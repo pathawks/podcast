@@ -17,6 +17,9 @@ podcast](http://herkyhack.com) in less than ten minutes. After each episode was
 encoded as an MP3, the `podcast` command would generate the HTML page for the
 episode, add the episode to our RSS feed, and publish the site.
 
+View the [source code for our demo
+site](https://github.com/ajfarino2/hackUIOWA18).
+
 ### Tools Used
 
  * [Google Cloud](https://cloud.google.com)
