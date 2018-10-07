@@ -15,7 +15,8 @@ directory.each { |e|
 	next unless File.extname(e) == ".mp3"
 	e_filename = File.join(dirname, e)
 	p_filename = File.join(dirname, File.basename(e, File.extname(e))+".html")
-	puts "Found episode: #{e_filename}"
+	next if File.exists?(p_filename) && (File.ctime(p_filename) > File.ctime(e_filename))
+	puts "Found new episode: #{e_filename}"
 	episode = JekyllPodcast::Episode.new(e_filename)
 	File.open(p_filename, 'w') do |file|
 		file.write episode.to_yaml
