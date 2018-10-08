@@ -23,5 +23,3 @@ directory.each { |e|
 		file.write "---\n"
 	end
 }
-
-`jekyll build && gsutil -m cp -r _site/* gs://herkyhack.com`
